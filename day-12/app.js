@@ -59,8 +59,9 @@ function Car(name, model) {
 const bmwCar = new Car("BMW", "X1");
 //console.log(bmwCar.myCar());
 
-// Static methods
+// 00.Static methods
 
+// a.assign
 const target = { p: 1, a: 2 };
 const source = { a: 3, b: 5 };
 
@@ -85,7 +86,7 @@ obj4.b.c = 3;
 console.log(obj4.b.c); // 3
 console.log(obj3.b.c); // 3  // object assign method in JS work as shallow copy and changes both source and target for nested object only
 
-// Structured cloning //deep cloning, nested objects in the source remains unchanged
+// b.Structured cloning //deep cloning, nested objects in the source remains unchanged
 const obj5 = structuredClone(obj3);
 
 obj5.a = 100;
@@ -94,7 +95,7 @@ obj5.b.c = 30;
 console.log(obj5);
 console.log(obj3);
 
-// Object.entries
+// c.Object.entries
 
 const sanjibObj = {
 	name: "Sanjib",
@@ -105,11 +106,48 @@ const sanjibArr = Object.entries(sanjibObj);
 
 console.log(sanjibArr);
 
-// from entries
+// d.fromEntries
 const entries = new Map([
 	["foo", "bar"],
 	["baz", 42],
 ]);
 
-const objeArray = Object.fromEntries(entries);
-console.log(objeArray);
+const objArray = Object.fromEntries(entries);
+console.log(objArray);
+
+// e.immutable
+
+// e.1 => freeze & isFrozen
+const emp = {
+	sal: 100,
+};
+
+Object.freeze(emp);
+
+emp.salary = 200;
+
+console.log(emp);
+
+console.log(Object.isFrozen(emp));
+
+// e.2=> seal & isSealed
+const dept = {
+	name: "finance",
+};
+
+Object.seal(dept);
+
+delete dept.name;
+dept.code = "001";
+
+dept.name = "HR";
+
+console.log(dept);
+
+console.log(Object.isSealed(dept));
+
+// e.3 => hasOwn
+console.log(Object.hasOwn(dept, "code"));
+
+// 01. object destructuring
+console.log("Learn object destructuring...");
