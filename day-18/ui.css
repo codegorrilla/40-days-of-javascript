@@ -1,0 +1,19 @@
+ul {
+	list-style: none;
+	padding: 0;
+
+	li {
+		padding: 10px;
+		border-bottom: 1px solid #ddd;
+
+		&.completed {
+			text-decoration: line-through;
+		}
+	}
+}
+
+button {
+	background: none;
+	border: none;
+	box-shadow: none;
+}

@@ -54,12 +54,13 @@ const person = {
 	name: "Sanjib",
 	address: {
 		city: "Kolkata",
+		country: "India",
 	},
 };
 
 const getPostalCode = (user) => {
 	try {
-		console.log(user.address.country.postalCode);
+		console.log(user.address?.country);
 	} catch (error) {
 		console.error("Error accessing property: ", error.message);
 	}
